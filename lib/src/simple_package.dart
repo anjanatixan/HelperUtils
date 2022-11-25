@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:simple_package/src/helperUtils.dart';
+import 'package:helper_utils/simple_package.dart';
 
 class SimplePackage extends StatefulWidget {
   const SimplePackage({Key? key}) : super(key: key);
