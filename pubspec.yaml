@@ -1,7 +1,7 @@
-name: simple_package
-description: A new Flutter package project.
+name: helper_utils
+description: It is useful for your project.
 version: 0.0.1
-homepage:
+homepage: https://github.com/anjanatixan/HelperUtils.git
 
 environment:
   sdk: ">=2.17.5 <3.0.0"
