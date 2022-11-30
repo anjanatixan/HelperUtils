@@ -15,6 +15,13 @@ class HelperUtils {
     return formatted;
   }
 
+  static String amountFormatter(double amount) {
+    final NumberFormat formatter = NumberFormat('#,##,000');
+    final String formatted = formatter.format(amount);
+
+    return formatted;
+  }
+
   static containerField({
     double? radius,
     Color? color,
@@ -79,7 +86,7 @@ class HelperUtils {
     Color? foregroundcolor,
     Color? overlaycolor,
   }) {
-    ElevatedButton(
+    return ElevatedButton(
         onPressed: onPress,
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all<Color>(
@@ -103,7 +110,7 @@ class HelperUtils {
     }
   }
 
-  static goNextFinishAll(
+  static navigatorGoNextFinishAll(
     BuildContext context,
     Widget screen,
   ) =>
@@ -111,5 +118,24 @@ class HelperUtils {
           MaterialPageRoute(builder: (context) => screen),
           (Route<dynamic> route) => false);
 
-  static goBack(BuildContext context, {dynamic data}) => Navigator.pop(context);
+  static navigatorGoBack(BuildContext context, {dynamic data}) =>
+      Navigator.pop(context);
+
+  static showToast(
+          {required BuildContext context,
+          required String message,
+          required Color backgroundcolor,
+          required Color textcolor,
+          TextStyle? textStyle}) =>
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        backgroundColor: backgroundcolor,
+        behavior: SnackBarBehavior.floating,
+        margin: const EdgeInsets.all(12.0),
+        dismissDirection: DismissDirection.down,
+        content: Text(
+          message,
+          style: TextStyle(color: textcolor),
+        ),
+        duration: const Duration(seconds: 3),
+      ));
 }
